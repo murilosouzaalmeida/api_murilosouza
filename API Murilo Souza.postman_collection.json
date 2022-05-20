@@ -1,0 +1,17 @@
+{
+	"info": {
+		"_postman_id": "960af281-2914-48a3-bb73-215e3ba06d5a",
+		"name": "API Murilo Souza",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mostra Teste Inicial",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
