@@ -1,9 +1,8 @@
 //config inicial
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
-
-const Pessoas = require('./models/Pessoas')
 
 //forma de ler JSON => utilizar MidleWares
 app.use(
@@ -15,29 +14,9 @@ app.use(
 app.use(express.json())
 
 //rotas da API
-app.post('/pessoas', async(req,res)=>{
+const personRoutes = require('./routes/personRoutes')
 
-    const {nome,salario,aprovado} = req.body
-    //{nome:"murilo",salario:6700,aprovado:false}
-
-    if (!nome) {
-        res.status(422).json({error: 'Nome é obrigatório!'})
-    }
-
-    const pessoas = {
-        nome,
-        salario,
-        aprovado
-    }
-
-    try {
-        await Pessoas.create(pessoas)
-        res.status(201).json({message: 'Pessoa inserida com sucesso!'})
-    } catch (error) {
-        res.status(500).json({error:error})
-    }
-
-})
+app.use('/pessoas', personRoutes)
 
 //rota inicial / endpoint
 app.get('/', (req,res)=>{
@@ -49,8 +28,8 @@ app.get('/', (req,res)=>{
 })
 
 // entregar uma porta
-const DB_USER = 'murilosouza'
-const DB_PASSWORD = encodeURIComponent('kU5By6v4yBrXY5vW')
+const DB_USER = process.env.DB_USER
+const DB_PASSWORD = encodeURIComponent(process.env.DB_PASSWORD)
 
 mongoose 
 .connect(

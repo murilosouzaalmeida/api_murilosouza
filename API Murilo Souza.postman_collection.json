@@ -6,9 +6,101 @@
 	},
 	"item": [
 		{
-			"name": "Mostra Teste Inicial",
+			"name": "Cadastro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"João Pedro\",\r\n    \"salario\" : 8200,\r\n    \"aprovado\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgate de cadastros",
 			"request": {
 				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pessoas",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pessoas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Resgate de pessoa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/pessoas/62853e1d0e4e8ad91b3d6568",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pessoas",
+						"62853e1d0e4e8ad91b3d6568"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar pessoa",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\" : \"João Liporonni\",\r\n    \"salario\" : 7300,\r\n    \"aprovado\" : true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/pessoas/628e75ed5eb13d47e7e43407",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"pessoas",
+						"628e75ed5eb13d47e7e43407"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remover pessoa",
+			"request": {
+				"method": "DELETE",
 				"header": []
 			},
 			"response": []
